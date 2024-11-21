@@ -21,155 +21,26 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { navigation } from "./NavigationData";
 
-const navigation = {
-  categories: [
-    {
-      id: "women",
-      name: "Women",
-      featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "Basic Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-        },
-      ],
-      sections: [
-        {
-          id: "clothing",
-          name: "Clothing",
-          items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
-          ],
-        },
-      ],
-    },
-    {
-      id: "men",
-      name: "Men",
-      featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-          imageAlt:
-            "Drawstring top with elastic loop closure and textured interior padding.",
-        },
-        {
-          name: "Artwork Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg",
-          imageAlt:
-            "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
-        },
-      ],
-      sections: [
-        {
-          id: "clothing",
-          name: "Clothing",
-          items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-          ],
-        },
-      ],
-    },
-  ],
-  pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
-  ],
-};
-
-export default function Navigation() {
+export default function Example() {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      <Dialog open={open} onClose={setOpen} className="relative z-50 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
         />
 
-        <div className="fixed inset-0 z-40 flex">
+        <div className="fixed inset-0 z-50 flex">
           <DialogPanel
             transition
-            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+            className="relative z-50 flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
           >
-            <div className="flex px-4 pb-2 pt-5">
+            <div className="flex px-4 pb-2 pt-5 z-50">
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -195,7 +66,7 @@ export default function Navigation() {
                   ))}
                 </TabList>
               </div>
-              <TabPanels as={Fragment}>
+              <TabPanels as={Fragment} className="relative">
                 {navigation.categories.map((category) => (
                   <TabPanel
                     key={category.name}
@@ -329,10 +200,10 @@ export default function Navigation() {
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <a href="#">
-                  <span className="sr-only">Your Company</span>
+                  <span className="sr-only">Bird Company</span>
                   <img
                     alt=""
-                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+                    src="https://img.freepik.com/free-vector/bird-colorful-gradient-design-vector_343694-2506.jpg"
                     className="h-8 w-auto"
                   />
                 </a>
@@ -460,10 +331,10 @@ export default function Navigation() {
                   >
                     <img
                       alt=""
-                      src="https://tailwindui.com/plus/img/flags/flag-canada.svg"
+                      src="https://t4.ftcdn.net/jpg/08/30/64/47/360_F_830644704_KsVVndLPo5J469yvDCok4M8YvcCiASkJ.jpg"
                       className="block h-auto w-5 shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-sm font-medium">IND</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>

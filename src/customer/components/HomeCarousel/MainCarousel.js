@@ -13,13 +13,15 @@ const MainCarousel = () => {
     />
   ));
   return (
-    <AliceCarousel
-      items={items}
-      disableButtonsControls
-      autoPlay
-      autoPlayInterval={1000}
-      infinite
-    />
+    <div className="relative z-10">
+      <AliceCarousel
+        items={items}
+        disableButtonsControls
+        autoPlay
+        autoPlayInterval={1000}
+        infinite
+      />
+    </div>
   );
 };
 
